@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<car id="5d66b3cd-2f63-4f15-bffd-6d9bcde44296">
+    <make>Volkswagen</make>
+    <model>Passat</model>
+    <engine>
+        <engineState>STOPPED</engineState>
+        <type>Petrol</type>
+        <volume>1600</volume>
+    </engine>
+</car>
