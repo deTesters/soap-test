@@ -24,7 +24,6 @@ public class IsInFamily extends TypeSafeMatcher<Integer> {
         this.family = family;
     }
 
-    @Override
     public void describeTo(Description description) {
         description.appendText("in response status code family " + family);
     }
