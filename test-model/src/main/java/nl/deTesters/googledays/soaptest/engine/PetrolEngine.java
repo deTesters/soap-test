@@ -4,7 +4,7 @@ public class PetrolEngine extends Engine {
     private static final EngineType ENGINE_TYPE = EngineType.Petrol;
 
     public PetrolEngine(int volume){
-        setEngineType(ENGINE_TYPE);
+        setType(ENGINE_TYPE);
         setVolume(volume);
     }
 }

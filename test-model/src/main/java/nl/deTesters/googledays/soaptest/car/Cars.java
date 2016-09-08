@@ -5,7 +5,9 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
@@ -26,4 +28,23 @@ public class Cars {
         return this.car;
     }
 
+    public void saveCar(Car car){
+        for(int i = 0; i < getCar().size(); i++){
+            Car existingCar = getCar().get(i);
+            if (existingCar.getId().equals(car.getId())){
+                getCar().remove(i);
+            }
+            getCar().add(car);
+        }
+    }
+
+    public Car getCar(String id){
+        Car car = null;
+        for(Car existingCar : getCar()){
+            if (existingCar.getId().equals(id)){
+                car = existingCar;
+            }
+        }
+        return car;
+    }
 }
