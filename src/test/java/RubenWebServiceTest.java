@@ -10,7 +10,7 @@ public class RubenWebServiceTest {
     @Test
     public void postTest() {
         Response response = rubenWebService.sendNewCar();
-        Assert.assertEquals(200, response.getStatusCode());
+        Assert.assertEquals("Wrong statuscode returned by webservice", 200, response.getStatusCode());
     }
 
 }
