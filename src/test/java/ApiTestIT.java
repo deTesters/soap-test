@@ -9,6 +9,8 @@ import org.junit.Test;
 
 import java.io.IOException;
 
+import static org.junit.Assert.assertEquals;
+
 public class ApiTestIT {
 
     private static String baseUrl = "http://192.168.1.58:9000/api/messagebox/";
@@ -67,5 +69,13 @@ public class ApiTestIT {
                 .statusCode(HttpStatus.SC_OK)
                 .and()
                 .body(Matchers.equalTo("stored"));
+}
+    @Test
+    public void getPostedMessage(){
+        doAPostWithBodyWithoutType();
+        String result = RestAssured.get(baseUrl).path("messages.content").toString();
+        String expected = "[[<test>test content</test>]]";
+        assertEquals(expected,result);
+
     }
 }
