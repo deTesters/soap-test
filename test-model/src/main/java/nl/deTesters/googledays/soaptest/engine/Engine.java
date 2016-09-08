@@ -5,8 +5,9 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
 public abstract class Engine {
-    String type;
+    EngineType engineType;
     EngineState engineState = EngineState.STOPPED;
+    int volume;
 
     public void start() {
         if (engineState == EngineState.STOPPED) {
@@ -20,13 +21,13 @@ public abstract class Engine {
         }
     }
 
-    public String getType() {
-        return type;
+    public EngineType getEngineType() {
+        return engineType;
     }
 
     @XmlElement
-    public void setType(String type) {
-        this.type = type;
+    public void setEngineType(EngineType engineType) {
+        this.engineType = engineType;
     }
 
     public EngineState getEngineState() {
@@ -37,4 +38,14 @@ public abstract class Engine {
     public void setEngineState(EngineState engineState) {
         this.engineState = engineState;
     }
+
+    public int getVolume() {
+        return volume;
+    }
+
+    @XmlElement
+    public void setVolume(int volume) {
+        this.volume = volume;
+    }
+
 }

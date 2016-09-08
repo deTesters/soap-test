@@ -2,15 +2,12 @@ package nl.deTesters.googledays.soaptest;
 
 import io.restassured.response.Response;
 import nl.deTesters.googledays.soaptest.car.Car;
-import nl.deTesters.googledays.soaptest.car.VolkswagenCar;
 import nl.deTesters.googledays.soaptest.restassured.WebServiceApplication;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
-import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
 import java.io.StringReader;
-import java.util.UUID;
 
 public class RubenWebService extends WebServiceApplication {
     public static final String BASE_URL = "http://192.168.1.58:9000/api/messagebox/";

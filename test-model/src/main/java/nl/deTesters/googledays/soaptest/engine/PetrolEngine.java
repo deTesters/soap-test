@@ -1,9 +1,10 @@
 package nl.deTesters.googledays.soaptest.engine;
 
 public class PetrolEngine extends Engine {
-    private static final String TYPE = "Petrol engine";
+    private static final EngineType ENGINE_TYPE = EngineType.Petrol;
 
-    public PetrolEngine(){
-        setType(TYPE);
+    public PetrolEngine(int volume){
+        setEngineType(ENGINE_TYPE);
+        setVolume(volume);
     }
 }

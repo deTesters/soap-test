@@ -12,18 +12,10 @@ import java.io.StringWriter;
 
 @XmlRootElement
 public abstract class Car {
-    String name;
+    String make;
+    String model;
     String id;
     Engine engine;
-
-    public String getName() {
-        return name;
-    }
-
-    @XmlElement
-    public void setName(String name) {
-        this.name = name;
-    }
 
     public String getId() {
         return id;
@@ -32,6 +24,24 @@ public abstract class Car {
     @XmlAttribute
     public void setId(String id) {
         this.id = id;
+    }
+
+    public String getMake() {
+        return make;
+    }
+
+    @XmlElement
+    public void setMake(String make) {
+        this.make = make;
+    }
+
+    public String getModel() {
+        return model;
+    }
+
+    @XmlElement
+    public void setModel(String model) {
+        this.model = model;
     }
 
     public Engine getEngine() {
