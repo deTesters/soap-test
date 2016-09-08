@@ -1,6 +1,6 @@
 package nl.deTesters.googledays.soaptest.owner;
 
-import nl.deTesters.googledays.soaptest.car.Car;
+import nl.deTesters.googledays.soaptest.car.Cars;
 
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
@@ -9,25 +9,57 @@ import java.util.List;
 
 @XmlRootElement
 public class Owner {
-    private List<Car> cars;
-    private String id;
+    @XmlElement(required = true, name = "cars")
+    protected Cars cars;
+    @XmlAttribute(name = "id")
+    protected String id;
 
-
-    public List<Car> getCars() {
+    /**
+     * Gets the value of the cars property.
+     *
+     * @return
+     *     possible object is
+     *     {@link Cars }
+     *
+     */
+    public Cars getCars() {
         return cars;
     }
 
-    @XmlElement
-    public void setCars(List<Car> cars) {
-        this.cars = cars;
+    /**
+     * Sets the value of the cars property.
+     *
+     * @param value
+     *     allowed object is
+     *     {@link Cars }
+     *
+     */
+    public void setCars(Cars value) {
+        this.cars = value;
     }
 
+    /**
+     * Gets the value of the id property.
+     *
+     * @return
+     *     possible object is
+     *     {@link String }
+     *
+     */
     public String getId() {
         return id;
     }
 
-    @XmlAttribute
-    public void setId(String id) {
-        this.id = id;
+    /**
+     * Sets the value of the id property.
+     *
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *
+     */
+    public void setId(String value) {
+        this.id = value;
     }
+
 }

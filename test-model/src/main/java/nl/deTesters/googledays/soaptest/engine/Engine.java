@@ -1,51 +1,94 @@
 package nl.deTesters.googledays.soaptest.engine;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.*;
+import java.math.BigInteger;
 
-@XmlRootElement
-public abstract class Engine {
-    EngineType engineType;
-    EngineState engineState = EngineState.STOPPED;
-    int volume;
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlType(name = "", propOrder = {
+        "engineState",
+        "type",
+        "volume"
+})
+@XmlRootElement(name = "engine")
+public class Engine {
 
-    public void start() {
-        if (engineState == EngineState.STOPPED) {
-            engineState = EngineState.STARTED;
-        }
-    }
+    @XmlElement(required = true)
+    protected EngineState engineState;
+    @XmlElement(required = true)
+    protected EngineType type;
+    @XmlElement(required = true)
+    protected int volume;
 
-    public void stop() {
-        if (engineState == EngineState.STARTED) {
-            engineState = EngineState.STOPPED;
-        }
-    }
-
-    public EngineType getEngineType() {
-        return engineType;
-    }
-
-    @XmlElement
-    public void setEngineType(EngineType engineType) {
-        this.engineType = engineType;
-    }
-
+    /**
+     * Gets the value of the engineState property.
+     *
+     * @return
+     *     possible object is
+     *     {@link String }
+     *
+     */
     public EngineState getEngineState() {
         return engineState;
     }
 
-    @XmlElement
-    public void setEngineState(EngineState engineState) {
-        this.engineState = engineState;
+    /**
+     * Sets the value of the engineState property.
+     *
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *
+     */
+    public void setEngineState(EngineState value) {
+        this.engineState = value;
     }
 
+    /**
+     * Gets the value of the type property.
+     *
+     * @return
+     *     possible object is
+     *     {@link String }
+     *
+     */
+    public EngineType getType() {
+        return type;
+    }
+
+    /**
+     * Sets the value of the type property.
+     *
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *
+     */
+    public void setType(EngineType value) {
+        this.type = value;
+    }
+
+    /**
+     * Gets the value of the volume property.
+     *
+     * @return
+     *     possible object is
+     *     {@link BigInteger }
+     *
+     */
     public int getVolume() {
         return volume;
     }
 
-    @XmlElement
-    public void setVolume(int volume) {
-        this.volume = volume;
+    /**
+     * Sets the value of the volume property.
+     *
+     * @param value
+     *     allowed object is
+     *     {@link BigInteger }
+     *
+     */
+    public void setVolume(int value) {
+        this.volume = value;
     }
 
 }

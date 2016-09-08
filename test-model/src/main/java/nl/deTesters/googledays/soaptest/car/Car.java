@@ -5,69 +5,120 @@ import nl.deTesters.googledays.soaptest.engine.Engine;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.*;
 import java.io.StringWriter;
 
-@XmlRootElement
-public abstract class Car {
-    String make;
-    String model;
-    String id;
-    Engine engine;
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlType(name = "", propOrder = {
+        "make",
+        "model",
+        "engine"
+})
+@XmlRootElement(name = "car")
+public class Car {
 
-    public String getId() {
-        return id;
-    }
+    @XmlElement(required = true)
+    protected String make;
+    @XmlElement(required = true)
+    protected String model;
+    @XmlElement(required = true)
+    protected Engine engine;
+    @XmlAttribute(name = "id")
+    protected String id;
 
-    @XmlAttribute
-    public void setId(String id) {
-        this.id = id;
-    }
-
+    /**
+     * Gets the value of the make property.
+     *
+     * @return
+     *     possible object is
+     *     {@link String }
+     *
+     */
     public String getMake() {
         return make;
     }
 
-    @XmlElement
-    public void setMake(String make) {
-        this.make = make;
+    /**
+     * Sets the value of the make property.
+     *
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *
+     */
+    public void setMake(String value) {
+        this.make = value;
     }
 
+    /**
+     * Gets the value of the model property.
+     *
+     * @return
+     *     possible object is
+     *     {@link String }
+     *
+     */
     public String getModel() {
         return model;
     }
 
-    @XmlElement
-    public void setModel(String model) {
-        this.model = model;
+    /**
+     * Sets the value of the model property.
+     *
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *
+     */
+    public void setModel(String value) {
+        this.model = value;
     }
 
+    /**
+     * Gets the value of the engine property.
+     *
+     * @return
+     *     possible object is
+     *     {@link Engine }
+     *
+     */
     public Engine getEngine() {
         return engine;
     }
 
-    @XmlElement
-    public void setEngine(Engine engine) {
-        this.engine = engine;
+    /**
+     * Sets the value of the engine property.
+     *
+     * @param value
+     *     allowed object is
+     *     {@link Engine }
+     *
+     */
+    public void setEngine(Engine value) {
+        this.engine = value;
     }
 
-    @Override
-    public String toString() {
-        StringWriter stringWriter = new StringWriter();
-        try {
-            JAXBContext jaxbContext = JAXBContext.newInstance(Car.class);
-            Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
+    /**
+     * Gets the value of the id property.
+     *
+     * @return
+     *     possible object is
+     *     {@link String }
+     *
+     */
+    public String getId() {
+        return id;
+    }
 
-            // output pretty printed
-            jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
-
-            jaxbMarshaller.marshal(this, stringWriter);
-        } catch (JAXBException e) {
-            e.printStackTrace();
-        }
-
-        return stringWriter.toString();
+    /**
+     * Sets the value of the id property.
+     *
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *
+     */
+    public void setId(String value) {
+        this.id = value;
     }
 }
