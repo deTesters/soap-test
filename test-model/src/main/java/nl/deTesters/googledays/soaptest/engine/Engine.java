@@ -3,29 +3,18 @@ package nl.deTesters.googledays.soaptest.engine;
 import javax.xml.bind.annotation.*;
 import java.math.BigInteger;
 
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "", propOrder = {
-        "engineState",
-        "type",
-        "volume"
-})
 @XmlRootElement(name = "engine")
-public class Engine {
+public abstract class Engine {
 
-    @XmlElement(required = true)
-    protected EngineState engineState;
-    @XmlElement(required = true)
+    protected EngineState engineState = EngineState.STOPPED;
     protected EngineType type;
-    @XmlElement(required = true)
     protected int volume;
 
     /**
      * Gets the value of the engineState property.
      *
-     * @return
-     *     possible object is
-     *     {@link String }
-     *
+     * @return possible object is
+     * {@link String }
      */
     public EngineState getEngineState() {
         return engineState;
@@ -34,11 +23,10 @@ public class Engine {
     /**
      * Sets the value of the engineState property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *
+     * @param value allowed object is
+     *              {@link String }
      */
+    @XmlElement(required = true, name = "engineState")
     public void setEngineState(EngineState value) {
         this.engineState = value;
     }
@@ -46,10 +34,8 @@ public class Engine {
     /**
      * Gets the value of the type property.
      *
-     * @return
-     *     possible object is
-     *     {@link String }
-     *
+     * @return possible object is
+     * {@link String }
      */
     public EngineType getType() {
         return type;
@@ -58,11 +44,10 @@ public class Engine {
     /**
      * Sets the value of the type property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *
+     * @param value allowed object is
+     *              {@link String }
      */
+    @XmlElement(required = true, name = "type")
     public void setType(EngineType value) {
         this.type = value;
     }
@@ -70,10 +55,8 @@ public class Engine {
     /**
      * Gets the value of the volume property.
      *
-     * @return
-     *     possible object is
-     *     {@link BigInteger }
-     *
+     * @return possible object is
+     * {@link BigInteger }
      */
     public int getVolume() {
         return volume;
@@ -82,11 +65,10 @@ public class Engine {
     /**
      * Sets the value of the volume property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link BigInteger }
-     *
+     * @param value allowed object is
+     *              {@link BigInteger }
      */
+    @XmlElement(required = true, name = "volume")
     public void setVolume(int value) {
         this.volume = value;
     }

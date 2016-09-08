@@ -28,7 +28,7 @@ public class ApiTestIT {
 
     @Test
     public void doAPostWithBodyWithoutType() {
-        loadTestDataFromFile("message.xml");
+        loadTestDataFromFile("example-car.xml");
         RestAssured.given()
                 .body(testData)
                 .when()
@@ -42,7 +42,7 @@ public class ApiTestIT {
     @Test
     public void doAPostWithBodyWithTypeOne() {
         String type = "one";
-        loadTestDataFromFile("message.xml");
+        loadTestDataFromFile("example-car.xml");
         RestAssured.given()
                 .body(testData)
                 .when()
@@ -56,7 +56,7 @@ public class ApiTestIT {
     @Test
     public void doAPostWithBodyWithTypeTwo() {
         String type = "two";
-        loadTestDataFromFile("message.xml");
+        loadTestDataFromFile("example-car.xml");
         RestAssured.given()
                 .body(testData)
                 .when()

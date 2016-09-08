@@ -2,6 +2,7 @@ package nl.deTesters.googledays.soaptest;
 
 import io.restassured.response.Response;
 import nl.deTesters.googledays.soaptest.car.Car;
+import nl.deTesters.googledays.soaptest.owner.Owner;
 import nl.deTesters.googledays.soaptest.restassured.WebServiceApplication;
 
 import javax.xml.bind.JAXBContext;
@@ -16,8 +17,8 @@ public class RubenWebService extends WebServiceApplication {
         super(BASE_URL);
     }
 
-    public Response sendCar(Car car) {
-        String body = car.toString();
+    public Response sendCar(Owner owner) {
+        String body = owner.toString();
         return post("car/", body);
     }
 

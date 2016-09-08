@@ -13,31 +13,30 @@ import java.util.List;
 
 @XmlRootElement
 public class Owner {
-    @XmlElement(required = true, name = "cars")
+
     protected Cars cars;
-    @XmlAttribute(name = "id")
     protected String id;
 
     /**
      * Gets the value of the cars property.
      *
-     * @return
-     *     possible object is
-     *     {@link Cars }
-     *
+     * @return possible object is
+     * {@link Cars }
      */
     public Cars getCars() {
+        if (cars == null){
+            cars = new Cars();
+        }
         return cars;
     }
 
     /**
      * Sets the value of the cars property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link Cars }
-     *
+     * @param value allowed object is
+     *              {@link Cars }
      */
+    @XmlElement(required = true, name = "cars")
     public void setCars(Cars value) {
         this.cars = value;
     }
@@ -45,10 +44,8 @@ public class Owner {
     /**
      * Gets the value of the id property.
      *
-     * @return
-     *     possible object is
-     *     {@link String }
-     *
+     * @return possible object is
+     * {@link String }
      */
     public String getId() {
         return id;
@@ -57,11 +54,10 @@ public class Owner {
     /**
      * Sets the value of the id property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *
+     * @param value allowed object is
+     *              {@link String }
      */
+    @XmlAttribute(required = true, name = "id")
     public void setId(String value) {
         this.id = value;
     }
@@ -70,7 +66,7 @@ public class Owner {
     public String toString() {
         StringWriter stringWriter = new StringWriter();
         try {
-            JAXBContext jaxbContext = JAXBContext.newInstance(this.getClass());
+            JAXBContext jaxbContext = JAXBContext.newInstance(Owner.class);
             Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
 
             // output pretty printed

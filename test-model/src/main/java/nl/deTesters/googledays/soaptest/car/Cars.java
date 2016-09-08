@@ -28,20 +28,20 @@ public class Cars {
         return this.car;
     }
 
-    public void saveCar(Car car){
-        for(int i = 0; i < getCar().size(); i++){
+    public void saveCar(Car car) {
+        for (int i = 0; i < getCar().size(); i++) {
             Car existingCar = getCar().get(i);
-            if (existingCar.getId().equals(car.getId())){
+            if (existingCar.getId().equals(car.getId())) {
                 getCar().remove(i);
             }
-            getCar().add(car);
         }
+        getCar().add(car);
     }
 
-    public Car getCar(String id){
+    public Car getCar(String id) {
         Car car = null;
-        for(Car existingCar : getCar()){
-            if (existingCar.getId().equals(id)){
+        for (Car existingCar : getCar()) {
+            if (existingCar.getId().equals(id)) {
                 car = existingCar;
             }
         }

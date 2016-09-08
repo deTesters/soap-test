@@ -8,31 +8,21 @@ import javax.xml.bind.Marshaller;
 import javax.xml.bind.annotation.*;
 import java.io.StringWriter;
 
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "", propOrder = {
-        "make",
-        "model",
-        "engine"
-})
-@XmlRootElement(name = "car")
-public class Car {
 
-    @XmlElement(required = true)
+@XmlRootElement(name = "car")
+public abstract class Car {
+
+
     protected String make;
-    @XmlElement(required = true)
     protected String model;
-    @XmlElement(required = true)
     protected Engine engine;
-    @XmlAttribute(name = "id")
     protected String id;
 
     /**
      * Gets the value of the make property.
      *
-     * @return
-     *     possible object is
-     *     {@link String }
-     *
+     * @return possible object is
+     * {@link String }
      */
     public String getMake() {
         return make;
@@ -41,11 +31,10 @@ public class Car {
     /**
      * Sets the value of the make property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *
+     * @param value allowed object is
+     *              {@link String }
      */
+    @XmlElement(required = true, name = "make")
     public void setMake(String value) {
         this.make = value;
     }
@@ -53,10 +42,8 @@ public class Car {
     /**
      * Gets the value of the model property.
      *
-     * @return
-     *     possible object is
-     *     {@link String }
-     *
+     * @return possible object is
+     * {@link String }
      */
     public String getModel() {
         return model;
@@ -65,11 +52,10 @@ public class Car {
     /**
      * Sets the value of the model property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *
+     * @param value allowed object is
+     *              {@link String }
      */
+    @XmlElement(required = true, name = "model")
     public void setModel(String value) {
         this.model = value;
     }
@@ -77,10 +63,8 @@ public class Car {
     /**
      * Gets the value of the engine property.
      *
-     * @return
-     *     possible object is
-     *     {@link Engine }
-     *
+     * @return possible object is
+     * {@link Engine }
      */
     public Engine getEngine() {
         return engine;
@@ -89,11 +73,10 @@ public class Car {
     /**
      * Sets the value of the engine property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link Engine }
-     *
+     * @param value allowed object is
+     *              {@link Engine }
      */
+    @XmlElement(required = true, name = "engine")
     public void setEngine(Engine value) {
         this.engine = value;
     }
@@ -101,10 +84,8 @@ public class Car {
     /**
      * Gets the value of the id property.
      *
-     * @return
-     *     possible object is
-     *     {@link String }
-     *
+     * @return possible object is
+     * {@link String }
      */
     public String getId() {
         return id;
@@ -113,11 +94,10 @@ public class Car {
     /**
      * Sets the value of the id property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *
+     * @param value allowed object is
+     *              {@link String }
      */
+    @XmlAttribute(required = true, name = "id")
     public void setId(String value) {
         this.id = value;
     }
@@ -126,7 +106,7 @@ public class Car {
     public String toString() {
         StringWriter stringWriter = new StringWriter();
         try {
-            JAXBContext jaxbContext = JAXBContext.newInstance(this.getClass());
+            JAXBContext jaxbContext = JAXBContext.newInstance(Car.class);
             Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
 
             // output pretty printed
