@@ -121,4 +121,22 @@ public class Car {
     public void setId(String value) {
         this.id = value;
     }
+
+    @Override
+    public String toString() {
+        StringWriter stringWriter = new StringWriter();
+        try {
+            JAXBContext jaxbContext = JAXBContext.newInstance(this.getClass());
+            Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
+
+            // output pretty printed
+            jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+
+            jaxbMarshaller.marshal(this, stringWriter);
+        } catch (JAXBException e) {
+            e.printStackTrace();
+        }
+
+        return stringWriter.toString();
+    }
 }

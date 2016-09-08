@@ -2,9 +2,13 @@ package nl.deTesters.googledays.soaptest.owner;
 
 import nl.deTesters.googledays.soaptest.car.Cars;
 
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Marshaller;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import java.io.StringWriter;
 import java.util.List;
 
 @XmlRootElement
@@ -62,4 +66,21 @@ public class Owner {
         this.id = value;
     }
 
+    @Override
+    public String toString() {
+        StringWriter stringWriter = new StringWriter();
+        try {
+            JAXBContext jaxbContext = JAXBContext.newInstance(this.getClass());
+            Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
+
+            // output pretty printed
+            jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+
+            jaxbMarshaller.marshal(this, stringWriter);
+        } catch (JAXBException e) {
+            e.printStackTrace();
+        }
+
+        return stringWriter.toString();
+    }
 }
